@@ -72,6 +72,8 @@
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\Enemy1.cs" />
     <Compile Include="Assets\Scripts\Enemy2.cs" />
+    <Compile Include="Assets\Scripts\Enemy3.cs" />
+    <Compile Include="Assets\Scripts\Enemy4.cs" />
     <Compile Include="Assets\Scripts\FireBall.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

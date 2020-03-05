@@ -59,11 +59,29 @@ public class FireBall : MonoBehaviour
                 enemy2.setHealth(enemy2.getHealth() - damage);
                 Debug.Log("Life of Enemy2: " + enemy2.getHealth());
             }
+            else if (col.gameObject.tag.Equals("Enemy3"))
+            {
+                Debug.Log("Collison with Enemy3");
+
+                Enemy3 enemy3 = col.gameObject.GetComponent<Enemy3>();
+                enemy3.setHealth(enemy3.getHealth() - damage);
+                Debug.Log("Life of Enemy3: " + enemy3.getHealth());
+            }
+            else if (col.gameObject.tag.Equals("Enemy4"))
+            {
+                Debug.Log("Collison with Enemy4");
+
+                Enemy4 enemy4 = col.gameObject.GetComponent<Enemy4>();
+                enemy4.setHealth(enemy4.getHealth() - damage);
+                Debug.Log("Life of Enemy4: " + enemy4.getHealth());
+            }
         }  else if (col.gameObject.tag.Equals("FireBall"))
         {
-            Debug.Log("Fireball is destroyed");
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            bool isByPlayerCreatedColFireBall = col.gameObject.GetComponent<FireBall>().getIsByPlayerCreated();
+            if (isByPlayerCreated ^ isByPlayerCreatedColFireBall) {
+                Debug.Log("Fireball is destroyed");
+                Destroy(col.gameObject);
+                Destroy(gameObject); }
         }
 
 

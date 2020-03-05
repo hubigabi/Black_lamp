@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);
 
         if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(rb.velocity.y) < 1.0) {
-            rb.AddForce(Vector2.up * 2500);
+            rb.AddForce(Vector2.up * 3000);
         }
 
         transform.position += move * speed * Time.deltaTime;

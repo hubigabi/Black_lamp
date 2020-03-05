@@ -23,7 +23,7 @@ public class Enemy2 : MonoBehaviour
 
     void Start()
     {
-        timeToCreateNewFireBall = Random.Range(1.5f, 3.0f);
+        timeToCreateNewFireBall = Random.Range(0.8f, 1.0f);
         leftBorder = GameObject.Find("LeftBorder").transform.position.x;
         rightBorder = GameObject.Find("RightBorder").transform.position.x;
     }
@@ -58,8 +58,9 @@ public class Enemy2 : MonoBehaviour
         }
 
 
+        //Fireballs
         countTime += Time.deltaTime;
-        if (countTime > timeToCreateNewFireBall)
+        if (countTime > timeToCreateNewFireBall && direction != 0)
         {
             FireBall newFireBall = Instantiate(GameObject.FindGameObjectsWithTag("FireBall")[0].GetComponent<FireBall>(),
                      new Vector3(transform.position.x, transform.position.y, 0.0f), Quaternion.identity);
@@ -68,6 +69,7 @@ public class Enemy2 : MonoBehaviour
             newFireBall.setDamage(damage);
             newFireBall.setIsByPlayerCreated(false);
             newFireBall.changeSpriteOnBlueBall();
+            //newFireBall.setSpeed(getSpeed() * 2.0f);
 
             countTime = 0.0;
         }
