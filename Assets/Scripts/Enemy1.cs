@@ -8,7 +8,7 @@ public class Enemy1 : MonoBehaviour
     private int direction = 0;
 
     private int health = 120;
-    private int damage = 15;
+    private int damage = 25;
 
     private float leftBorder;
     private float rightBorder;
@@ -52,6 +52,7 @@ public class Enemy1 : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Player.score += damage * 10;
             Debug.Log("Death of enemy");
         }
 

@@ -54,6 +54,7 @@ public class Enemy2 : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            Player.score += damage * 10;
             Debug.Log("Death of enemy");
         }
 

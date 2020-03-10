@@ -6,13 +6,25 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     private float speed = 20.0f;
-    private int health = 200;
+    private int maxHealth = 100; 
+    private int health;
     private int damage = 20;
 
     private Rigidbody2D rb;
 
     private float leftCameraBorder;
     private float rightCameraBorder;
+
+    public HealthBar healthBar;
+    private int numberOfLifes = 5;
+    private int previousNumberOfLifes;
+    private int previousHealth;
+
+    public static int score;
+    private static int previousScore;
+    public ScoreToDisplay scoreToDisplay;
+
+    public HeartManager heartManager;
 
     void Start()
     {
@@ -31,6 +43,16 @@ public class Player : MonoBehaviour
         Debug.Log("Bounds: " + bounds);
         Debug.Log("Left camera border:" + leftCameraBorder);
         Debug.Log("Right camera border:" + rightCameraBorder);
+
+        health = maxHealth;
+        previousHealth = health;
+        healthBar.SetMaxHealth(maxHealth);
+
+        score = 0;
+        previousScore = score;
+
+        heartManager.changeVisibleHeartsNumber(numberOfLifes);
+        previousNumberOfLifes = numberOfLifes;
     }
 
   
@@ -38,7 +60,7 @@ public class Player : MonoBehaviour
     {
         var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);
 
-        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && Mathf.Abs(rb.velocity.y) < 1.0) {
+        if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) && Mathf.Abs(rb.velocity.y) < 0.1) {
             rb.AddForce(Vector2.up * 3000);
         }
 
@@ -77,9 +99,39 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(rightCameraBorder, transform.position.y, transform.position.z);
         }
 
+        if (health != previousHealth)
+        {
+            healthBar.SetHealth(health);
+            previousHealth = health;
+        }
+
+        if (score != previousScore)
+        {
+            scoreToDisplay.setScoreText(score);
+            previousScore = score;
+        }
+
+        if (numberOfLifes == previousNumberOfLifes - 1)
+        {
+            heartManager.removeOneHeart(numberOfLifes);
+            previousNumberOfLifes = numberOfLifes;
+        } else if (numberOfLifes != previousNumberOfLifes) {
+            heartManager.changeVisibleHeartsNumber(numberOfLifes);
+        }
+
         if (health <= 0) {
-            Destroy(gameObject);
-            Debug.Log("Death of player");
+
+            numberOfLifes--;
+            if (numberOfLifes > 0)
+            {
+                health = maxHealth;
+            }
+            else {
+                heartManager.changeVisibleHeartsNumber(0);
+                previousNumberOfLifes = numberOfLifes;
+                Destroy(gameObject);
+                Debug.Log("Death of player");
+            }
         }
 
     }
@@ -112,4 +164,24 @@ public class Player : MonoBehaviour
         damage = value;
     }
 
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int value)
+    {
+        maxHealth = value;
+    }
+
+    public static int getScore()
+    {
+        return score;
+    }
+
+    public static void setScore(int value)
+    {
+        score = value;
+    }
 }

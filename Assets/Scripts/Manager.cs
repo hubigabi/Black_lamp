@@ -18,6 +18,8 @@ public class Manager : MonoBehaviour
     private double countTime = 0.0;
     private double timeToCreateNewEnemy;
 
+    private int maxNumberOfEnemies = 6;
+
     void Start()
     {
         timeToCreateNewEnemy = Random.Range(3.0f, 5.0f); 
@@ -54,7 +56,7 @@ public class Manager : MonoBehaviour
             int randomNumber = Random.Range(0, 5);
 
             //Not so difficult, number of enemies cant be infinite 
-            if (getNumberOfEnemies() < 8)
+            if (getNumberOfEnemies() < maxNumberOfEnemies)
             {
                 if (randomNumber == 0)
                 {
@@ -75,7 +77,7 @@ public class Manager : MonoBehaviour
             }
 
             countTime = 0.0;
-            timeToCreateNewEnemy = Random.Range(1.0f, 2.0f);
+            timeToCreateNewEnemy = Random.Range(1.5f, 2.0f);
         }
 
     }
