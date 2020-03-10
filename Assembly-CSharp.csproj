@@ -79,7 +79,6 @@
     <Compile Include="Assets\Scripts\HeartManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\ScoreToDisplay.cs" />
     <None Include="Assets\Hero and Opponents\license.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
