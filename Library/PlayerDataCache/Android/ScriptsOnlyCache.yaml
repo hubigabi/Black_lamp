@@ -179,18 +179,6 @@ ScriptsOnlyBuild:
     className: ParticleSystemMultiplier
   - hash:
       serializedVersion: 2
-      Hash: 0d85f4fda1e0e70cd92c084d12f05cdc
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.ThirdPerson
-    className: AICharacterControl
-  - hash:
-      serializedVersion: 2
-      Hash: be8b29ecd05b56bbfb5cc0e39b16c11b
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.FirstPerson
-    className: FirstPersonController
-  - hash:
-      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -203,22 +191,10 @@ ScriptsOnlyBuild:
     className: ExplosionPhysicsForce
   - hash:
       serializedVersion: 2
-      Hash: f00ca901b734f71f99db8f25241154c4
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: Suspension
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 78d229a32405f4104025ae9511906999
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: BrakeLight
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -237,12 +213,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
-  - hash:
-      serializedVersion: 2
-      Hash: 39a1af780851540205de944aa74817a6
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: SkidTrail
   - hash:
       serializedVersion: 2
       Hash: 06a330481ec400be50745bb7faf76bd0
@@ -273,12 +243,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
-  - hash:
-      serializedVersion: 2
-      Hash: 718ef0ded913ba15da8a97ccf24793ce
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneUserControl4Axis
   - hash:
       serializedVersion: 2
       Hash: d63aae503ada135df9e49dad6d9fb277
@@ -315,12 +279,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Ball
-    className: BallUserControl
   - hash:
       serializedVersion: 2
       Hash: 1731d95cc8dce262956d345535456351
@@ -395,12 +353,6 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 42396cadf10b77f3a077293197e93634
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: WheelEffects
-  - hash:
-      serializedVersion: 2
       Hash: 385666d964b0eabb4136cbb95125e502
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Cameras
@@ -423,12 +375,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: CarUserControl
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -473,18 +419,6 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: d67515fd6babd339b8727dc35ae03966
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneAudio
-  - hash:
-      serializedVersion: 2
-      Hash: 9452dc0dca800cf5f781114ef25a9a87
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneController
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
@@ -527,12 +461,6 @@ ScriptsOnlyBuild:
     className: PlatformSpecificContent
   - hash:
       serializedVersion: 2
-      Hash: 5e8a01a14cef8c5fb6866e39e13545df
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.ThirdPerson
-    className: ThirdPersonCharacter
-  - hash:
-      serializedVersion: 2
       Hash: b54f8be68f6e3169d543383799d00e18
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -555,12 +483,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.CrossPlatformInput
     className: InputAxisScrollbar
-  - hash:
-      serializedVersion: 2
-      Hash: d7bc2b4e85ce46723a80c1bc49f3798b
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneAiControl
   - hash:
       serializedVersion: 2
       Hash: fdd7177da17032ba94d98037cc97bb49
@@ -599,22 +521,10 @@ ScriptsOnlyBuild:
     className: ButtonHandler
   - hash:
       serializedVersion: 2
-      Hash: 0e0c7e6c34f2d19ba95cf463e39888b1
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.FirstPerson
-    className: HeadBob
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.ThirdPerson
-    className: ThirdPersonUserControl
   - hash:
       serializedVersion: 2
       Hash: a4d879eed97e8d86fd752672fc026fa2
@@ -659,12 +569,6 @@ ScriptsOnlyBuild:
     className: ParticleSceneControls
   - hash:
       serializedVersion: 2
-      Hash: 65c9e8f2d0653991d518373cd4240b97
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: LandingGear
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.CrossPlatformInput
@@ -689,28 +593,10 @@ ScriptsOnlyBuild:
     className: AfterburnerPhysicsForce
   - hash:
       serializedVersion: 2
-      Hash: e08b7fd025e5743e5563e22fdd827075
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: CarController
-  - hash:
-      serializedVersion: 2
-      Hash: 0334c4a0effc471453cf665c58f76aff
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: CarAIControl
-  - hash:
-      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
-  - hash:
-      serializedVersion: 2
-      Hash: 21ee95b4add1eb6d3d25a1efaa2d13d9
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: CarSelfRighting
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -833,12 +719,6 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 76b945b547f74d79302f337813e6c0be
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Characters.FirstPerson
-    className: RigidbodyFirstPersonController
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -849,12 +729,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Cameras
     className: HandHeldCam
-  - hash:
-      serializedVersion: 2
-      Hash: b294ba655397a2a6c58cddd17cea876c
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplanePropellerAnimator
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -875,12 +749,6 @@ ScriptsOnlyBuild:
     className: DynamicShadowSettings
   - hash:
       serializedVersion: 2
-      Hash: 428923bc6e394f67d7e43c7fdc2bc412
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: JetParticleEffect
-  - hash:
-      serializedVersion: 2
       Hash: 02e6483ba585336f78a48b8cf2289aa0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -893,22 +761,10 @@ ScriptsOnlyBuild:
     className: SimpleActivatorMenu
   - hash:
       serializedVersion: 2
-      Hash: daa6a65fb0f785335ff43e9998133a34
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: Mudguard
-  - hash:
-      serializedVersion: 2
       Hash: 7e6b022cd7f1c29976ca8b1a21d06265
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.SceneUtils
     className: PlaceTargetWithMouse
-  - hash:
-      serializedVersion: 2
-      Hash: c0e061a135ad81adea53b31e6bf68107
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneControlSurfaceAnimator
   - hash:
       serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
@@ -921,18 +777,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HeartManager
-  - hash:
-      serializedVersion: 2
-      Hash: a909505c7e9870f1ee552a40f203397a
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Car
-    className: CarAudio
-  - hash:
-      serializedVersion: 2
-      Hash: 718ef0ded913ba15da8a97ccf24793ce
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Aeroplane
-    className: AeroplaneUserControl2Axis
   - hash:
       serializedVersion: 2
       Hash: b9048d3760274b9fd3dc94b75b3d0f96
@@ -987,12 +831,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.CrossPlatformInput
     className: TouchPad
-  - hash:
-      serializedVersion: 2
-      Hash: 61faedcd907718913efd3ec146822d0e
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Vehicles.Ball
-    className: Ball
   - hash:
       serializedVersion: 2
       Hash: a8cd58c1680eb5251e5604e560cf89e9
