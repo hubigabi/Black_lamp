@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    private float speed = 50.0f;
+    private float speed = 60.0f;
     private int direction = 0;
 
     private int damage = 1;
@@ -40,7 +40,7 @@ public class FireBall : MonoBehaviour
 
             Player player = col.gameObject.GetComponent<Player>();
             player.setHealth(player.getHealth() - damage);
-            Debug.Log("Life of player: " + player.getHealth());
+            //Debug.Log("Life of player: " + player.getHealth());
         } else if (isByPlayerCreated) {
 
             if (col.gameObject.tag.Equals("Enemy1")) {
@@ -48,7 +48,7 @@ public class FireBall : MonoBehaviour
 
                 Enemy1 enemy1 = col.gameObject.GetComponent<Enemy1>();
                 enemy1.setHealth(enemy1.getHealth() - damage);
-                Debug.Log("Life of Enemy1: " + enemy1.getHealth());
+               //Debug.Log("Life of Enemy1: " + enemy1.getHealth());
             }
 
             else if (col.gameObject.tag.Equals("Enemy2"))
@@ -57,7 +57,7 @@ public class FireBall : MonoBehaviour
 
                 Enemy2 enemy2 = col.gameObject.GetComponent<Enemy2>();
                 enemy2.setHealth(enemy2.getHealth() - damage);
-                Debug.Log("Life of Enemy2: " + enemy2.getHealth());
+                //Debug.Log("Life of Enemy2: " + enemy2.getHealth());
             }
             else if (col.gameObject.tag.Equals("Enemy3"))
             {
@@ -65,7 +65,7 @@ public class FireBall : MonoBehaviour
 
                 Enemy3 enemy3 = col.gameObject.GetComponent<Enemy3>();
                 enemy3.setHealth(enemy3.getHealth() - damage);
-                Debug.Log("Life of Enemy3: " + enemy3.getHealth());
+                //Debug.Log("Life of Enemy3: " + enemy3.getHealth());
             }
             else if (col.gameObject.tag.Equals("Enemy4"))
             {
@@ -73,13 +73,13 @@ public class FireBall : MonoBehaviour
 
                 Enemy4 enemy4 = col.gameObject.GetComponent<Enemy4>();
                 enemy4.setHealth(enemy4.getHealth() - damage);
-                Debug.Log("Life of Enemy4: " + enemy4.getHealth());
+                //Debug.Log("Life of Enemy4: " + enemy4.getHealth());
             }
         }  else if (col.gameObject.tag.Equals("FireBall"))
         {
             bool isByPlayerCreatedColFireBall = col.gameObject.GetComponent<FireBall>().getIsByPlayerCreated();
             if (isByPlayerCreated ^ isByPlayerCreatedColFireBall) {
-                Debug.Log("Fireball is destroyed");
+                //Debug.Log("Fireball is destroyed");
                 Destroy(col.gameObject);
                 Destroy(gameObject); }
         }

@@ -70,6 +70,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Enemy1.cs" />
     <Compile Include="Assets\Scripts\Enemy2.cs" />
     <Compile Include="Assets\Scripts\Enemy3.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ScoreToDisplay.cs" />
     <None Include="Assets\Hero and Opponents\license.txt" />
+    <None Include="Assets\Sprites\wizard2\README.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Studia/VI_Semestr/Projektowanie i programowanie gier/Projekt/Black Lamp/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

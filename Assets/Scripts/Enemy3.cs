@@ -43,6 +43,9 @@ public class Enemy3 : MonoBehaviour
         //Debug.Log("Bottom camera border: " + bottomCameraBorder);
 
         groundTopY = GameObject.Find("Ground").transform.position.y + GameObject.Find("Ground").GetComponent<SpriteRenderer>().bounds.size.y / 2;
+
+        //Add a litle bit space from ground
+        height *= 2.5f;
     }
 
 

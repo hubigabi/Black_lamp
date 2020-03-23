@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Enemy2 : MonoBehaviour
 {
-    private float speed = 30.0f;
+    private float speed = 25.0f;
     private int direction = 0;
 
-    private int health = 120;
+    private int health = 90;
     private int damage = 10;
 
     private float leftBorder;
@@ -15,6 +15,8 @@ public class Enemy2 : MonoBehaviour
 
     private double countTime = 0.0;
     private double timeToCreateNewFireBall;
+
+    private float width;
 
     public void setDirection(int value)
     {
@@ -26,6 +28,7 @@ public class Enemy2 : MonoBehaviour
         timeToCreateNewFireBall = Random.Range(0.8f, 1.0f);
         leftBorder = GameObject.Find("LeftBorder").transform.position.x;
         rightBorder = GameObject.Find("RightBorder").transform.position.x;
+        width = GameObject.Find("Enemy4").GetComponent<Enemy4>().GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
 
@@ -64,13 +67,13 @@ public class Enemy2 : MonoBehaviour
         if (countTime > timeToCreateNewFireBall && direction != 0)
         {
             FireBall newFireBall = Instantiate(GameObject.FindGameObjectsWithTag("FireBall")[0].GetComponent<FireBall>(),
-                     new Vector3(transform.position.x, transform.position.y, 0.0f), Quaternion.identity);
+                     new Vector3(transform.position.x + direction * width / 2, transform.position.y, 0.0f), Quaternion.identity);
 
             newFireBall.setDirection(direction);
             newFireBall.setDamage(damage);
             newFireBall.setIsByPlayerCreated(false);
             newFireBall.changeSpriteOnBlueBall();
-            //newFireBall.setSpeed(getSpeed() * 2.0f);
+            newFireBall.setSpeed(getSpeed() * 2.0f);
 
             countTime = 0.0;
         }

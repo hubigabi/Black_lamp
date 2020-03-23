@@ -22,7 +22,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        timeToCreateNewEnemy = Random.Range(3.0f, 5.0f); 
+        timeToCreateNewEnemy = Random.Range(4.0f, 5.0f); 
         leftBorderX = GameObject.Find("LeftBorder").transform.position.x;
         rightBorderX = GameObject.Find("RightBorder").transform.position.x;
 
@@ -41,9 +41,13 @@ public class Manager : MonoBehaviour
         enemy2Height = GameObject.Find("Enemy2").GetComponent<Enemy2>().GetComponent<SpriteRenderer>().bounds.size.y;
         enemy3Height = GameObject.Find("Enemy3").GetComponent<Enemy3>().GetComponent<SpriteRenderer>().bounds.size.y;
         enemy4Height = GameObject.Find("Enemy4").GetComponent<Enemy4>().GetComponent<SpriteRenderer>().bounds.size.y;
-    
+
+        //Add a litle bit space from ground for flying enemies
+        enemy3Height *= 2.5f;
+        enemy4Height *= 1.0f;
+
         createEnemy1();
-        //createEnemy2();
+        createEnemy2();
         createEnemy3();
         createEnemy4();
     }
@@ -60,19 +64,19 @@ public class Manager : MonoBehaviour
             {
                 if (randomNumber == 0)
                 {
-                    createEnemy1();
+                   createEnemy1();
                 }
                 else if (randomNumber == 1)
                 {
-                    createEnemy2();
+                   createEnemy2();
                 }
                 else if (randomNumber == 3)
                 {
-                    createEnemy3();
+                   createEnemy3();
                 }
                 else if (randomNumber == 4)
                 {
-                    createEnemy4();
+                   createEnemy4();
                 }
             }
 
@@ -141,7 +145,7 @@ public class Manager : MonoBehaviour
         else
         {
             Enemy3 enemy3 = Instantiate(GameObject.Find("Enemy3").GetComponent<Enemy3>(),
-               new Vector3(rightBorderX, groundTopY + initialeYPosition, 0.0f), Quaternion.identity);
+               new Vector3(rightBorderX, initialeYPosition, 0.0f), Quaternion.identity);
 
             enemy3.transform.rotation = new Quaternion(0, 180, 0, 0);
             enemy3.setDirection(-1);
@@ -163,7 +167,7 @@ public class Manager : MonoBehaviour
         else
         {
             Enemy4 enemy4 = Instantiate(GameObject.Find("Enemy4").GetComponent<Enemy4>(),
-               new Vector3(rightBorderX, groundTopY + initialeYPosition, 0.0f), Quaternion.identity);
+               new Vector3(rightBorderX, initialeYPosition, 0.0f), Quaternion.identity);
 
             enemy4.transform.rotation = new Quaternion(0, 180, 0, 0);
             enemy4.setDirection(-1);

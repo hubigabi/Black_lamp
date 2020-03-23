@@ -35,7 +35,7 @@ public class Enemy4 : MonoBehaviour
 
         leftBorder = GameObject.Find("LeftBorder").transform.position.x;
         rightBorder = GameObject.Find("RightBorder").transform.position.x;
-        height = GameObject.Find("Enemy3").GetComponent<Enemy3>().GetComponent<SpriteRenderer>().bounds.size.y;
+        height = GameObject.Find("Enemy4").GetComponent<Enemy4>().GetComponent<SpriteRenderer>().bounds.size.y;
 
         //Camera
         float screenAspect = (float)Screen.width / (float)Screen.height;
@@ -49,6 +49,9 @@ public class Enemy4 : MonoBehaviour
         //Debug.Log("Bottom camera border: " + bottomCameraBorder);
 
         groundTopY = GameObject.Find("Ground").transform.position.y + GameObject.Find("Ground").GetComponent<SpriteRenderer>().bounds.size.y / 2;
+
+        //Add a litle bit space from ground
+        height *= 1.5f;
     }
 
 
@@ -122,20 +125,18 @@ public class Enemy4 : MonoBehaviour
                 }
             }
 
-
-
             //Fireballs
             countTime += Time.deltaTime;
             if (countTime > timeToCreateNewFireBall && direction != 0)
             {
                 FireBall newFireBall = Instantiate(GameObject.FindGameObjectsWithTag("FireBall")[0].GetComponent<FireBall>(),
-                         new Vector3(transform.position.x, transform.position.y, 0.0f), Quaternion.identity);
+                         new Vector3(transform.position.x + direction * height/5, transform.position.y, 0.0f), Quaternion.identity);
 
                 newFireBall.setDirection(direction);
                 newFireBall.setDamage(damage);
                 newFireBall.setIsByPlayerCreated(false);
                 newFireBall.changeSpriteOnBlueBall();
-                newFireBall.setSpeed(getSpeed() * 1.5f);
+                newFireBall.setSpeed(getSpeed() * 2.0f);
 
                 countTime = 0.0;
             }

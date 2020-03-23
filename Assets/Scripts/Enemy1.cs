@@ -7,7 +7,7 @@ public class Enemy1 : MonoBehaviour
     private float speed = 30.0f;
     private int direction = 0;
 
-    private int health = 120;
+    private int health = 100;
     private int damage = 25;
 
     private float leftBorder;
