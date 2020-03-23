@@ -13,7 +13,7 @@ public class ScoreToDisplay : MonoBehaviour
     }
 
     public void setScoreText(int score) {
-        text.text = "HIGH SCORE: " + score.ToString();
+        text.text = "SCORE: " + score.ToString();
     }
    
 }

@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\HeartManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerRecord.cs" />
     <Compile Include="Assets\Scripts\ScoreToDisplay.cs" />
     <None Include="Assets\Hero and Opponents\license.txt" />
     <None Include="Assets\Sprites\wizard2\README.txt" />
