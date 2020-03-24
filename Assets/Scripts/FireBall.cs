@@ -39,8 +39,8 @@ public class FireBall : MonoBehaviour
             Debug.Log("Collison with Player");
 
             Player player = col.gameObject.GetComponent<Player>();
-            player.setHealth(player.getHealth() - damage);
-            //Debug.Log("Life of player: " + player.getHealth());
+            PlayerRecord.health -= damage;
+            //Debug.Log("Life of player: " + PlayerRecord.health);
         } else if (isByPlayerCreated) {
 
             if (col.gameObject.tag.Equals("Enemy1")) {

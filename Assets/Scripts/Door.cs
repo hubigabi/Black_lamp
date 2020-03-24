@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -24,11 +25,15 @@ public class Door : MonoBehaviour
 
     private int counter = 0;
 
+    private Scene currentScene;
+
     void Start()
     {
+        Debug.Log("Number of sccenes:" + SceneManager.GetAllScenes().Length);
         GetComponent<Renderer>().enabled = false;
         timeToAppearDoor = Random.Range(timeToAppearDoor - deltaTime, timeToAppearDoor + deltaTime);
         timeToOpenDoor = Random.Range(timeToOpenDoor - deltaTime, timeToOpenDoor + deltaTime);
+        currentScene = SceneManager.GetActiveScene();
     }
 
     void Update()
@@ -58,14 +63,19 @@ public class Door : MonoBehaviour
     void OnTriggerStay2D(Collider2D col)
     {
 
-        if (col.gameObject.name.Equals("Player") && counter ==2)
+        if (col.gameObject.name.Equals("Player") && counter == 2)
         {
-            Debug.Log("Load next level");
-
-            //TODO
-            //Load next level
+            if (currentScene.buildIndex+1 < PlayerRecord.levelsNumber)
+            {
+                Debug.Log("Load next level");
+                SceneManager.LoadScene(currentScene.buildIndex + 1);
+            }
+            else {
+                Debug.Log("You finished the game!");
+            }
         }
 
 
     }
+
 }

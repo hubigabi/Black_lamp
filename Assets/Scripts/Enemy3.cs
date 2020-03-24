@@ -121,7 +121,7 @@ public class Enemy3 : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
-                Player.score += damage * 10;
+                PlayerRecord.score += damage * 10;
                 Debug.Log("Death of enemy");
             }
         }
@@ -136,9 +136,9 @@ public class Enemy3 : MonoBehaviour
                 Debug.Log("Collison with Player");
 
                 Player player = col.gameObject.GetComponent<Player>();
-                player.setHealth(player.getHealth() - damage);
-                Debug.Log("Life of player: " + player.getHealth());
-            }
+                PlayerRecord.health -= damage;
+                Debug.Log("Life of player: " + PlayerRecord.health);
+        }
         
 
     }

@@ -6,8 +6,6 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     private float speed = 20.0f;
-    private int maxHealth = 100; 
-    private int health;
     private int damage = 20;
 
     private float height;
@@ -19,12 +17,7 @@ public class Player : MonoBehaviour
     private float rightCameraBorder;
 
     public HealthBar healthBar;
-    private int numberOfLifes = 5;
-    private int previousNumberOfLifes;
-    private int previousHealth;
 
-    public static int score;
-    private static int previousScore;
     public ScoreToDisplay scoreToDisplay;
 
     public HeartManager heartManager;
@@ -32,6 +25,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public bool waitingForDeath = false;
 
+    private bool isJumping = true;
 
     void Start()
     {
@@ -51,15 +45,15 @@ public class Player : MonoBehaviour
         Debug.Log("Left camera border:" + leftCameraBorder);
         Debug.Log("Right camera border:" + rightCameraBorder);
 
-        health = maxHealth;
-        previousHealth = health;
-        healthBar.SetMaxHealth(maxHealth);
+        scoreToDisplay.setScoreText(PlayerRecord.getScore());
+        PlayerRecord.setPreviousScore(PlayerRecord.getScore());
 
-        score = 0;
-        previousScore = score;
+        healthBar.SetMaxHealth(PlayerRecord.maxHealth);
+        healthBar.SetHealth(PlayerRecord.health);
+        PlayerRecord.previousHealth = PlayerRecord.health;
 
-        heartManager.changeVisibleHeartsNumber(numberOfLifes);
-        previousNumberOfLifes = numberOfLifes;
+        heartManager.changeVisibleHeartsNumber(PlayerRecord.numberOfLifes);
+        PlayerRecord.previousNumberOfLifes = PlayerRecord.numberOfLifes;
 
         height = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.y;
         width = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.x;
@@ -75,14 +69,11 @@ public class Player : MonoBehaviour
         {
             var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);
 
-            if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) && Mathf.Abs(rb.velocity.y) < 0.1)
+            if ((CrossPlatformInputManager.GetButton("Jump") || Input.GetButton("Jump")) && !isJumping)
             {
-                rb.AddForce(Vector2.up * 3000);
+                rb.AddForce(Vector2.up * 2900);
                 animator.SetBool("isJumping", true);
-            }
-            else if (Mathf.Abs(rb.velocity.y) < 0.1)
-            {
-                animator.SetBool("isJumping", false);
+                isJumping = true;
             }
 
             transform.position += move * speed * Time.deltaTime;
@@ -123,7 +114,7 @@ public class Player : MonoBehaviour
                 animator.SetFloat("speed", 0.0f);
             }
 
-            if (CrossPlatformInputManager.GetButtonDown("Shoot") || Input.GetKeyDown(KeyCode.K))
+            if (CrossPlatformInputManager.GetButtonDown("Shoot") || Input.GetKeyDown(KeyCode.Z))
             {
                 animator.SetBool("isShooting", true);
                 int direction = -1;
@@ -143,7 +134,8 @@ public class Player : MonoBehaviour
                 newFireBall.setDamage(damage);
                 newFireBall.setIsByPlayerCreated(true);
             }
-            else {
+            else
+            {
                 animator.SetBool("isShooting", false);
             }
 
@@ -160,41 +152,42 @@ public class Player : MonoBehaviour
                 transform.position = new Vector3(rightCameraBorder, transform.position.y, transform.position.z);
             }
 
-            if (health != previousHealth)
+            if (PlayerRecord.health != PlayerRecord.previousHealth)
             {
-                healthBar.SetHealth(health);
-                previousHealth = health;
+                healthBar.SetHealth(PlayerRecord.health);
+                PlayerRecord.previousHealth = PlayerRecord.health;
             }
 
-            if (score != previousScore)
+            if (PlayerRecord.getScore() != PlayerRecord.getPreviousScore())
             {
-                scoreToDisplay.setScoreText(score);
-                previousScore = score;
+                scoreToDisplay.setScoreText(PlayerRecord.getScore());
+                PlayerRecord.setPreviousScore(PlayerRecord.getScore());
             }
 
-            if (numberOfLifes == previousNumberOfLifes - 1)
+            if (PlayerRecord.numberOfLifes == PlayerRecord.previousNumberOfLifes - 1)
             {
-                heartManager.removeOneHeart(numberOfLifes);
-                previousNumberOfLifes = numberOfLifes;
+                heartManager.removeOneHeart(PlayerRecord.numberOfLifes);
+                PlayerRecord.previousNumberOfLifes = PlayerRecord.numberOfLifes;
             }
-            else if (numberOfLifes != previousNumberOfLifes)
+            else if (PlayerRecord.numberOfLifes != PlayerRecord.previousNumberOfLifes)
             {
-                heartManager.changeVisibleHeartsNumber(numberOfLifes);
+                heartManager.changeVisibleHeartsNumber(PlayerRecord.numberOfLifes);
+                PlayerRecord.previousNumberOfLifes = PlayerRecord.numberOfLifes;
             }
 
-            if (health <= 0)
+            if (PlayerRecord.health <= 0)
             {
 
-                numberOfLifes--;
-                if (numberOfLifes > 0)
+                PlayerRecord.numberOfLifes--;
+                if (PlayerRecord.numberOfLifes > 0)
                 {
-                    health = maxHealth;
+                    PlayerRecord.health = PlayerRecord.maxHealth;
                 }
                 else
                 {
                     animator.SetBool("isDead", true);
                     heartManager.changeVisibleHeartsNumber(0);
-                    previousNumberOfLifes = numberOfLifes;
+                    PlayerRecord.previousNumberOfLifes = PlayerRecord.numberOfLifes;
 
                     waitingForDeath = true;
                     StartCoroutine(waitForDeath(5));
@@ -209,24 +202,17 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
         Debug.Log("Death of player");
+        Application.Quit();
     }
 
-    public float getSpeed() {
+    public float getSpeed()
+    {
         return speed;
     }
 
-    public void setSpeed(float value){
-         speed = value;
-    }
-
-    public int getHealth()
+    public void setSpeed(float value)
     {
-        return health;
-    }
-
-    public void setHealth(int value)
-    {
-        health = value;
+        speed = value;
     }
 
     public int getDamage()
@@ -239,24 +225,33 @@ public class Player : MonoBehaviour
         damage = value;
     }
 
-
-    public int getMaxHealth()
+    void OnCollisionEnter2D(Collision2D collision2D)
     {
-        return maxHealth;
+        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1
+            && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
+        {
+            isJumping = false;
+            animator.SetBool("isJumping", false);
+        }
     }
 
-    public void setMaxHealth(int value)
+    void OnCollisionStay2D(Collision2D collision2D)
     {
-        maxHealth = value;
+        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1 
+            && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
+        {
+            isJumping = false;
+            animator.SetBool("isJumping", false);
+        }
     }
 
-    public static int getScore()
+    void OnCollisionExit2D(Collision2D collision2D)
     {
-        return score;
+        if (collision2D.gameObject.tag.Equals("Ground"))
+        {
+            isJumping = true;
+            animator.SetBool("isJumping", true);
+        }
     }
 
-    public static void setScore(int value)
-    {
-        score = value;
-    }
 }
