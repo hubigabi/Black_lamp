@@ -7,7 +7,7 @@ public class PlayerRecord : MonoBehaviour
     public static int score;
     public static int previousScore;
 
-    public static int maxHealth = 100;
+    public static int maxHealth = 150;
     public static int health;
     public static int previousHealth;
 

@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public bool waitingForDeath = false;
 
+    private bool isJumping = true;
 
     void Start()
     {
@@ -68,14 +69,11 @@ public class Player : MonoBehaviour
         {
             var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);
 
-            if ((CrossPlatformInputManager.GetButtonDown("Jump") || Input.GetButtonDown("Jump")) && Mathf.Abs(rb.velocity.y) < 0.1)
+            if ((CrossPlatformInputManager.GetButton("Jump") || Input.GetButton("Jump")) && !isJumping)
             {
                 rb.AddForce(Vector2.up * 2900);
                 animator.SetBool("isJumping", true);
-            }
-            else if (Mathf.Abs(rb.velocity.y) < 0.1)
-            {
-                animator.SetBool("isJumping", false);
+                isJumping = true;
             }
 
             transform.position += move * speed * Time.deltaTime;
@@ -136,7 +134,8 @@ public class Player : MonoBehaviour
                 newFireBall.setDamage(damage);
                 newFireBall.setIsByPlayerCreated(true);
             }
-            else {
+            else
+            {
                 animator.SetBool("isShooting", false);
             }
 
@@ -206,12 +205,14 @@ public class Player : MonoBehaviour
         Application.Quit();
     }
 
-    public float getSpeed() {
+    public float getSpeed()
+    {
         return speed;
     }
 
-    public void setSpeed(float value){
-         speed = value;
+    public void setSpeed(float value)
+    {
+        speed = value;
     }
 
     public int getDamage()
@@ -224,5 +225,33 @@ public class Player : MonoBehaviour
         damage = value;
     }
 
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1
+            && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
+        {
+            isJumping = false;
+            animator.SetBool("isJumping", false);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1 
+            && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
+        {
+            isJumping = false;
+            animator.SetBool("isJumping", false);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision2D)
+    {
+        if (collision2D.gameObject.tag.Equals("Ground"))
+        {
+            isJumping = true;
+            animator.SetBool("isJumping", true);
+        }
+    }
 
 }
