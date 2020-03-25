@@ -21,4 +21,9 @@ public class LevelsManager : MonoBehaviour
     {
        SceneManager.LoadScene("Magazine", LoadSceneMode.Single);
     }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
 }
