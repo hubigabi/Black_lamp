@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
@@ -61,8 +62,7 @@ public class Player : MonoBehaviour
         //Free rotatation along Z-axis
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
-
-
+    
     void Update()
     {
         if (!waitingForDeath)
@@ -254,4 +254,218 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        //Checking the chest:
+        if (collision.gameObject.name.Equals("Chest"))
+        {
+            //sprawdzenie i zapalenie odpowiedniej lampy
+        }
+
+        //Checking the lamps:
+        else if (collision.gameObject.name.Equals("LampLevel2"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            //+ dodanie do tablicy
+            //+ wyświetlenie na dolnym pasku
+        }
+        else if (collision.gameObject.name.Equals("LampLevel3"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel4"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel5"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel6"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel8"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel9"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel10"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel11"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+        else if (collision.gameObject.name.Equals("LampLevel12"))
+        {
+            collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+
+        //Corridor & Magazine travel:
+        else if (collision.gameObject.name.Equals("ToCorridor"))
+        {
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetLastLevel(0);
+        }
+        else if (collision.gameObject.name.Equals("ToMagazine"))
+        {
+            SceneManager.LoadScene("Magazine", LoadSceneMode.Single);
+        }
+
+        //Level1 & Level2 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel1"))
+        {
+            GameObject.Find("MainDoor1").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level1ToMain"))
+        {
+            GameObject.Find("Door1").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(1);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            
+        }
+        else if (collision.gameObject.name.Equals("Level1ToLevel2"))
+        {
+            GameObject.Find("Door2").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level2ToLevel1"))
+        {
+            GameObject.Find("Door2").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(2);
+            SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        }
+
+        //Level3 & Level4 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel3"))
+        {
+            GameObject.Find("MainDoor3").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level3", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level3ToMain"))
+        {
+            GameObject.Find("Door3").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(3);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level3ToLevel4"))
+        {
+            GameObject.Find("Door4").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level4", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level4ToLevel3"))
+        {
+            GameObject.Find("Door4").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(4);
+            SceneManager.LoadScene("Level3", LoadSceneMode.Single);
+        }
+
+        //Level5 & Level6 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel5"))
+        {
+            GameObject.Find("MainDoor5").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level5", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level5ToMain"))
+        {
+            GameObject.Find("Door5").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(5);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level5ToLevel6"))
+        {
+            GameObject.Find("Door6").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level6", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level6ToLevel5"))
+        {
+            GameObject.Find("Door6").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(6);
+            SceneManager.LoadScene("Level5", LoadSceneMode.Single);
+        }
+
+        //Level7 & Level8 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel7"))
+        {
+            GameObject.Find("MainDoor7").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level7", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level7ToMain"))
+        {
+            GameObject.Find("Door7").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(7);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level7ToLevel8"))
+        {
+            GameObject.Find("Door8").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level8", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level8ToLevel7"))
+        {
+            GameObject.Find("Door8").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(8);
+            SceneManager.LoadScene("Level7", LoadSceneMode.Single);
+        }
+
+        //Level9 & Level10 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel9"))
+        {
+            GameObject.Find("MainDoor9").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level9", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level9ToMain"))
+        {
+            GameObject.Find("Door9").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(9);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level9ToLevel10"))
+        {
+            GameObject.Find("Door10").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level10", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level10ToLevel9"))
+        {
+            GameObject.Find("Door10").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(10);
+            SceneManager.LoadScene("Level9", LoadSceneMode.Single);
+        }
+
+        //Level11 & Level12 travel:
+        else if (collision.gameObject.name.Equals("MainToLevel11"))
+        {
+            GameObject.Find("MainDoor11").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(0);
+            SceneManager.LoadScene("Level11", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level11ToMain"))
+        {
+            GameObject.Find("Door11").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(11);
+            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level11ToLevel12"))
+        {
+            GameObject.Find("Door12").GetComponent<Door>().timeToOpenDoor = 0;
+            SceneManager.LoadScene("Level12", LoadSceneMode.Single);
+        }
+        else if (collision.gameObject.name.Equals("Level12ToLevel11"))
+        {
+            GameObject.Find("Door12").GetComponent<Door>().timeToOpenDoor = 0;
+            DataManager.SetLastLevel(12);
+            SceneManager.LoadScene("Level11", LoadSceneMode.Single);
+        }
+    }
 }

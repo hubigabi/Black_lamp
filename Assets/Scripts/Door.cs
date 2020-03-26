@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     private float timeToAppearDoor;
 
     [SerializeField]
-    private float timeToOpenDoor;
+    public float timeToOpenDoor;
 
     [SerializeField]
     private float deltaTime;
@@ -62,7 +62,7 @@ public class Door : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-
+        /*
         if (col.gameObject.name.Equals("Player") && counter == 2)
         {
             if (currentScene.buildIndex+1 < PlayerRecord.levelsNumber)
@@ -74,8 +74,6 @@ public class Door : MonoBehaviour
                 Debug.Log("You finished the game!");
             }
         }
-
-
+        */
     }
-
 }
