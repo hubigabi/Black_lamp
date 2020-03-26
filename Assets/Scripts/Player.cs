@@ -259,50 +259,62 @@ public class Player : MonoBehaviour
         //Checking the chest:
         if (collision.gameObject.name.Equals("Chest"))
         {
-            //sprawdzenie i zapalenie odpowiedniej lampy
+            int lastLevel = DataManager.GetLastLampLevel();
+            DataManager.SetLampLevel(lastLevel, true);
+            LevelsManager.DisplayLamps();
         }
 
         //Checking the lamps:
         else if (collision.gameObject.name.Equals("LampLevel2"))
         {
+            DataManager.SetLastLampLevel(2);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
-            //+ dodanie do tablicy
             //+ wyświetlenie na dolnym pasku
+
         }
         else if (collision.gameObject.name.Equals("LampLevel3"))
         {
+            DataManager.SetLastLampLevel(3);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel4"))
         {
+            DataManager.SetLastLampLevel(4);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel5"))
         {
+            DataManager.SetLastLampLevel(5);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel6"))
         {
+            DataManager.SetLastLampLevel(6);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel8"))
         {
+            DataManager.SetLastLampLevel(8);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel9"))
         {
+            DataManager.SetLastLampLevel(9);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel10"))
         {
+            DataManager.SetLastLampLevel(10);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel11"))
         {
+            DataManager.SetLastLampLevel(11);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
         else if (collision.gameObject.name.Equals("LampLevel12"))
         {
+            DataManager.SetLastLampLevel(12);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
 

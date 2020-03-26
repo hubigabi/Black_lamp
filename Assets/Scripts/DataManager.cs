@@ -15,4 +15,27 @@ public class DataManager : MonoBehaviour
     {
         lastLevel = value;
     }
+
+    private static bool[] LampLevel = new bool[13];
+    private static int LastLampLevel;
+    
+    public static bool GetLampLevel(int level)
+    {
+        return LampLevel[level];
+    }
+
+    public static void SetLampLevel(int level, bool value)
+    {
+        LampLevel[level] = value;
+    }
+
+    public static int GetLastLampLevel()
+    {
+        return LastLampLevel;
+    }
+
+    public static void SetLastLampLevel(int value)
+    {
+        LastLampLevel = value;
+    }
 }

@@ -2055,7 +2055,6 @@ MonoBehaviour:
   heartManager: {fileID: 174264925}
   animator: {fileID: 0}
   waitingForDeath: 0
-  lastLevel: 0
 --- !u!212 &638498374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2349,7 +2348,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 87.86975
+  orthographic size: 85.42447
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4711,7 +4710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644791305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3096.5, y: -263.9, z: 0}
+  m_LocalPosition: {x: -3096.77, y: -278.03, z: 0}
   m_LocalScale: {x: 2.6499999, y: 10.650001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
