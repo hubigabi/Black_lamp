@@ -12,6 +12,8 @@ public class LevelsManager : MonoBehaviour
     Sprite LampLevel2, LampLevel3, LampLevel4, LampLevel5, LampLevel6, LampLevel8;
     Sprite LampLevel9, LampLevel10, LampLevel11, LampLevel12, LampNone;
 
+    private int time = 0, maxTime = 40;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,22 +35,22 @@ public class LevelsManager : MonoBehaviour
                     GameObject.Find("Player").transform.position = new Vector3(-3104.7f, -251.7f, 0);
                     break;
                 case 1:
-                    GameObject.Find("Player").transform.position = new Vector3(-3129.8f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-3129.8f, -242f, 0);
                     break;
                 case 3:
-                    GameObject.Find("Player").transform.position = new Vector3(-3171.4f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-3171.4f, -242f, 0);
                     break;
                 case 5:
-                    GameObject.Find("Player").transform.position = new Vector3(-3236.9f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-3236.9f, -242f, 0);
                     break;
                 case 7:
-                    GameObject.Find("Player").transform.position = new Vector3(-3064.2f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-3064.2f, -242f, 0);
                     break;
                 case 9:
-                    GameObject.Find("Player").transform.position = new Vector3(-3023.2f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-3023.2f, -242f, 0);
                     break;
                 case 11:
-                    GameObject.Find("Player").transform.position = new Vector3(-2957.7f, -248f, 0);
+                    GameObject.Find("Player").transform.position = new Vector3(-2957.7f, -242f, 0);
                     break;
             }
         }
@@ -266,6 +268,40 @@ public class LevelsManager : MonoBehaviour
             default:
                 lamp.GetComponent<Image>().sprite = LampNone;
                 break;
+        }
+        
+        //Displaying gap scene:
+        if (scene.name.Equals("Gap"))
+        {
+            time++;
+            if(time > maxTime)
+            {
+                int newLevel = DataManager.GetNewLevel();
+                switch (newLevel)
+                {
+                    case 1:
+                        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+                        break;
+                    case 3:
+                        SceneManager.LoadScene("Level3", LoadSceneMode.Single);
+                        break;
+                    case 5:
+                        SceneManager.LoadScene("Level5", LoadSceneMode.Single);
+                        break;
+                    case 7:
+                        SceneManager.LoadScene("Level7", LoadSceneMode.Single);
+                        break;
+                    case 9:
+                        SceneManager.LoadScene("Level9", LoadSceneMode.Single);
+                        break;
+                    case 11:
+                        SceneManager.LoadScene("Level11", LoadSceneMode.Single);
+                        break;
+                   default:
+                        SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+                        break;
+                }
+            }
         }
     }
 

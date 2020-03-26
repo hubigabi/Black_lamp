@@ -38,4 +38,28 @@ public class DataManager : MonoBehaviour
     {
         LastLampLevel = value;
     }
+
+    public static bool CheckAll()
+    {
+        for(int i = 2; i < 13; i++)
+        {
+            if(i != 7 && LampLevel[i] == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int newLevel = 0;
+
+    public static int GetNewLevel()
+    {
+        return newLevel;
+    }
+
+    public static void SetNewLevel(int value)
+    {
+        newLevel = value;
+    }
 }

@@ -193,7 +193,6 @@ public class Player : MonoBehaviour
                     StartCoroutine(waitForDeath(5));
                 }
             }
-
         }
     }
 
@@ -202,7 +201,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
         Debug.Log("Death of player");
-        Application.Quit();
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
     public float getSpeed()
@@ -263,6 +262,11 @@ public class Player : MonoBehaviour
             DataManager.SetLampLevel(lastLampLevel, true);
             LevelsManager.DisplayLamps();
             DataManager.SetLastLampLevel(0);
+
+            if (DataManager.CheckAll())
+            {
+                SceneManager.LoadScene("Finish", LoadSceneMode.Single);
+            }
         }
 
         //Checking the lamps:
@@ -333,14 +337,16 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor1").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+            DataManager.SetNewLevel(1);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level1ToMain"))
         {
             GameObject.Find("Door1").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(1);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
-            
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
+
         }
         else if (collision.gameObject.name.Equals("Level1ToLevel2"))
         {
@@ -359,13 +365,15 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor3").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level3", LoadSceneMode.Single);
+            DataManager.SetNewLevel(3);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level3ToMain"))
         {
             GameObject.Find("Door3").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(3);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level3ToLevel4"))
         {
@@ -384,13 +392,15 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor5").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level5", LoadSceneMode.Single);
+            DataManager.SetNewLevel(5);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level5ToMain"))
         {
             GameObject.Find("Door5").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(5);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level5ToLevel6"))
         {
@@ -409,13 +419,15 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor7").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level7", LoadSceneMode.Single);
+            DataManager.SetNewLevel(7);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level7ToMain"))
         {
             GameObject.Find("Door7").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(7);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level7ToLevel8"))
         {
@@ -434,13 +446,15 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor9").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level9", LoadSceneMode.Single);
+            DataManager.SetNewLevel(9);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level9ToMain"))
         {
             GameObject.Find("Door9").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(9);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level9ToLevel10"))
         {
@@ -459,13 +473,15 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("MainDoor11").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(0);
-            SceneManager.LoadScene("Level11", LoadSceneMode.Single);
+            DataManager.SetNewLevel(11);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level11ToMain"))
         {
             GameObject.Find("Door11").GetComponent<Door>().timeToOpenDoor = 0;
             DataManager.SetLastLevel(11);
-            SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
+            DataManager.SetNewLevel(0);
+            SceneManager.LoadScene("Gap", LoadSceneMode.Single);
         }
         else if (collision.gameObject.name.Equals("Level11ToLevel12"))
         {
