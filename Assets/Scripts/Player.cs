@@ -259,9 +259,10 @@ public class Player : MonoBehaviour
         //Checking the chest:
         if (collision.gameObject.name.Equals("Chest"))
         {
-            int lastLevel = DataManager.GetLastLampLevel();
-            DataManager.SetLampLevel(lastLevel, true);
+            int lastLampLevel = DataManager.GetLastLampLevel();
+            DataManager.SetLampLevel(lastLampLevel, true);
             LevelsManager.DisplayLamps();
+            DataManager.SetLastLampLevel(0);
         }
 
         //Checking the lamps:
@@ -269,8 +270,6 @@ public class Player : MonoBehaviour
         {
             DataManager.SetLastLampLevel(2);
             collision.GetComponent<SpriteRenderer>().sortingOrder = 0;
-            //+ wyświetlenie na dolnym pasku
-
         }
         else if (collision.gameObject.name.Equals("LampLevel3"))
         {

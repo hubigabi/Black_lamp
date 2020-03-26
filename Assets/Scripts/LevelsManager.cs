@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelsManager : MonoBehaviour
 {
     private Scene scene;
     private int lastLevel;
+
+    Sprite LampLevel2, LampLevel3, LampLevel4, LampLevel5, LampLevel6, LampLevel8;
+    Sprite LampLevel9, LampLevel10, LampLevel11, LampLevel12, LampNone;
 
     // Start is called before the first frame update
     void Start()
@@ -21,35 +25,31 @@ public class LevelsManager : MonoBehaviour
         }
 
         //Setting player position & displaying lamps in levels:
-        if (scene.name.Equals("Corridor"))
+        else if (scene.name.Equals("Corridor"))
         {
-            if (lastLevel == 0)
+            switch (lastLevel)
             {
-                GameObject.Find("Player").transform.position = new Vector3(-3104.7f, -251.7f, 0);
-            }
-            else if (lastLevel == 1)
-            {
-                GameObject.Find("Player").transform.position = new Vector3(-3129.8f, -248f, 0);
-            }
-            else if (lastLevel == 3)
-            {
-                GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(-3171.4f, -248f, 0);
-            }
-            else if (lastLevel == 5)
-            {
-                GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(-3236.9f, -248f, 0);
-            }
-            else if (lastLevel == 7)
-            {
-                GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(-3064.2f, -248f, 0);
-            }
-            else if (lastLevel == 9)
-            {
-                GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(-3023.2f, -248f, 0);
-            }
-            else if (lastLevel == 11)
-            {
-                GameObject.Find("Player").GetComponent<Transform>().position = new Vector3(-2957.7f, -248f, 0);
+                case 0:
+                    GameObject.Find("Player").transform.position = new Vector3(-3104.7f, -251.7f, 0);
+                    break;
+                case 1:
+                    GameObject.Find("Player").transform.position = new Vector3(-3129.8f, -248f, 0);
+                    break;
+                case 3:
+                    GameObject.Find("Player").transform.position = new Vector3(-3171.4f, -248f, 0);
+                    break;
+                case 5:
+                    GameObject.Find("Player").transform.position = new Vector3(-3236.9f, -248f, 0);
+                    break;
+                case 7:
+                    GameObject.Find("Player").transform.position = new Vector3(-3064.2f, -248f, 0);
+                    break;
+                case 9:
+                    GameObject.Find("Player").transform.position = new Vector3(-3023.2f, -248f, 0);
+                    break;
+                case 11:
+                    GameObject.Find("Player").transform.position = new Vector3(-2957.7f, -248f, 0);
+                    break;
             }
         }
         else if (scene.name.Equals("Level1"))
@@ -68,13 +68,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel2");
             if (DataManager.GetLampLevel(2) || DataManager.GetLastLampLevel() == 2)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level3"))
@@ -91,13 +85,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel3");
             if (DataManager.GetLampLevel(3) || DataManager.GetLastLampLevel() == 3)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level4"))
@@ -105,13 +93,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel4");
             if (DataManager.GetLampLevel(4) || DataManager.GetLastLampLevel() == 4)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level5"))
@@ -128,13 +110,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel5");
             if (DataManager.GetLampLevel(5) || DataManager.GetLastLampLevel() == 5)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level6"))
@@ -142,13 +118,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel6");
             if (DataManager.GetLampLevel(6) || DataManager.GetLastLampLevel() == 6)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level7"))
@@ -167,13 +137,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel8");
             if (DataManager.GetLampLevel(8) || DataManager.GetLastLampLevel() == 8)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level9"))
@@ -190,13 +154,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel9");
             if (DataManager.GetLampLevel(9) || DataManager.GetLastLampLevel() == 9)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level10"))
@@ -204,13 +162,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel10");
             if (DataManager.GetLampLevel(10) || DataManager.GetLastLampLevel() == 10)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level11"))
@@ -227,13 +179,7 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel11");
             if (DataManager.GetLampLevel(11) || DataManager.GetLastLampLevel() == 11)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
         else if (scene.name.Equals("Level12"))
@@ -241,15 +187,22 @@ public class LevelsManager : MonoBehaviour
             GameObject lamp = GameObject.Find("LampLevel12");
             if (DataManager.GetLampLevel(12) || DataManager.GetLastLampLevel() == 12)
             {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 0;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = false;
-            }
-            else
-            {
-                lamp.GetComponent<SpriteRenderer>().sortingOrder = 3;
-                lamp.GetComponent<BoxCollider2D>().isTrigger = true;
+                Destroy(lamp);
             }
         }
+
+        //Getting all lamps resources:
+        LampLevel2 = Resources.Load<Sprite>("lamps/LampLevel2");
+        LampLevel3 = Resources.Load<Sprite>("lamps/LampLevel3");
+        LampLevel4 = Resources.Load<Sprite>("lamps/LampLevel4");
+        LampLevel5 = Resources.Load<Sprite>("lamps/LampLevel5");
+        LampLevel6 = Resources.Load<Sprite>("lamps/LampLevel6");
+        LampLevel8 = Resources.Load<Sprite>("lamps/LampLevel8");
+        LampLevel9 = Resources.Load<Sprite>("lamps/LampLevel9");
+        LampLevel10 = Resources.Load<Sprite>("lamps/LampLevel10");
+        LampLevel11 = Resources.Load<Sprite>("lamps/LampLevel11");
+        LampLevel12 = Resources.Load<Sprite>("lamps/LampLevel12");
+        LampNone = Resources.Load<Sprite>("lamps/LampNone");
     }
 
     public static void DisplayLamps()
@@ -275,7 +228,45 @@ public class LevelsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        int lastLampLevel = DataManager.GetLastLampLevel();
+        GameObject lamp = GameObject.Find("LampImage");
+        
+        switch (lastLampLevel)
+        {
+            case 2:
+                lamp.GetComponent<Image>().sprite = LampLevel2;
+                break;
+            case 3:
+                lamp.GetComponent<Image>().sprite = LampLevel3;
+                break;
+            case 4:
+                lamp.GetComponent<Image>().sprite = LampLevel4;
+                break;
+            case 5:
+                lamp.GetComponent<Image>().sprite = LampLevel5;
+                break;
+            case 6:
+                lamp.GetComponent<Image>().sprite = LampLevel6;
+                break;
+            case 8:
+                lamp.GetComponent<Image>().sprite = LampLevel8;
+                break;
+            case 9:
+                lamp.GetComponent<Image>().sprite = LampLevel9;
+                break;
+            case 10:
+                lamp.GetComponent<Image>().sprite = LampLevel10;
+                break;
+            case 11:
+                lamp.GetComponent<Image>().sprite = LampLevel11;
+                break;
+            case 12:
+                lamp.GetComponent<Image>().sprite = LampLevel12;
+                break;
+            default:
+                lamp.GetComponent<Image>().sprite = LampNone;
+                break;
+        }
     }
 
     public void LoadMagazine()
