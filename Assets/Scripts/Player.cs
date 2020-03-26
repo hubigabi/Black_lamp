@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
+        /*
         //Camera
         float screenAspect = (float)Screen.width / (float)Screen.height;
         float cameraHeight = Camera.main.orthographicSize * 2;
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Bounds: " + bounds);
         Debug.Log("Left camera border:" + leftCameraBorder);
-        Debug.Log("Right camera border:" + rightCameraBorder);
+        Debug.Log("Right camera border:" + rightCameraBorder);*/
 
         scoreToDisplay.setScoreText(PlayerRecord.getScore());
         PlayerRecord.setPreviousScore(PlayerRecord.getScore());
@@ -55,9 +55,9 @@ public class Player : MonoBehaviour
 
         heartManager.changeVisibleHeartsNumber(PlayerRecord.numberOfLifes);
         PlayerRecord.previousNumberOfLifes = PlayerRecord.numberOfLifes;
-
+        /*
         height = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.y;
-        width = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.x;
+        width = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.x;*/
 
         //Free rotatation along Z-axis
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
             }
 
 
-
+            /*
             if (transform.position.x < leftCameraBorder)
             {
                 transform.position = new Vector3(leftCameraBorder, transform.position.y, transform.position.z);
@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
             if (transform.position.x > rightCameraBorder)
             {
                 transform.position = new Vector3(rightCameraBorder, transform.position.y, transform.position.z);
-            }
+            }*/
 
             if (PlayerRecord.health != PlayerRecord.previousHealth)
             {

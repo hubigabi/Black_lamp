@@ -33,24 +33,31 @@ public class LevelsManager : MonoBehaviour
             {
                 case 0:
                     GameObject.Find("Player").transform.position = new Vector3(-3104.7f, -251.7f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3104.7f, -233.4f, -10f);
                     break;
                 case 1:
                     GameObject.Find("Player").transform.position = new Vector3(-3129.8f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3129.8f, -233.4f, -10f);
                     break;
                 case 3:
                     GameObject.Find("Player").transform.position = new Vector3(-3171.4f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3171.4f, -233.4f, -10f);
                     break;
                 case 5:
                     GameObject.Find("Player").transform.position = new Vector3(-3236.9f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3236.9f, -233.4f, -10f);
                     break;
                 case 7:
                     GameObject.Find("Player").transform.position = new Vector3(-3064.2f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3064.2f, -233.4f, -10f);
                     break;
                 case 9:
                     GameObject.Find("Player").transform.position = new Vector3(-3023.2f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-3023.2f, -233.4f, -10f);
                     break;
                 case 11:
                     GameObject.Find("Player").transform.position = new Vector3(-2957.7f, -242f, 0);
+                    GameObject.Find("Main Camera").transform.position = new Vector3(-2957.7f, -233.4f, -10f);
                     break;
             }
         }
