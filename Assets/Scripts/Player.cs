@@ -60,11 +60,13 @@ public class Player : MonoBehaviour
         width = GameObject.Find("Player").GetComponent<Player>().GetComponent<SpriteRenderer>().bounds.size.x;*/
 
         //Free rotatation along Z-axis
+        //Debug.Log
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     
     void Update()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (!waitingForDeath)
         {
             var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);
@@ -154,6 +156,7 @@ public class Player : MonoBehaviour
 
             if (PlayerRecord.health != PlayerRecord.previousHealth)
             {
+                Debug.Log(healthBar == null);
                 healthBar.SetHealth(PlayerRecord.health);
                 PlayerRecord.previousHealth = PlayerRecord.health;
             }

@@ -5834,8 +5834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d9ada57bcff464a953e0c5c43c8ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  scoreToDisplay: {fileID: 0}
+  healthBar: {fileID: 478439935}
+  scoreToDisplay: {fileID: 383736172}
   heartManager: {fileID: 1988603746}
   animator: {fileID: 0}
   waitingForDeath: 0
@@ -6212,11 +6212,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 174235522}
+  - {fileID: 1729864469}
+  - {fileID: 2140805517}
+  - {fileID: 1480013090}
+  - {fileID: 1819515410}
 --- !u!4 &1988603747
 Transform:
   m_ObjectHideFlags: 0
