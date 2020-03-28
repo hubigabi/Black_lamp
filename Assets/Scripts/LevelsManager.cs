@@ -237,51 +237,55 @@ public class LevelsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int lastLampLevel = DataManager.GetLastLampLevel();
-        GameObject lamp = GameObject.Find("LampImage");
-        
-        switch (lastLampLevel)
+        if (!scene.name.Equals("Menu") && !scene.name.Equals("Gap")
+            && !scene.name.Equals("GameOver") && !scene.name.Equals("Finish"))
         {
-            case 2:
-                lamp.GetComponent<Image>().sprite = LampLevel2;
-                break;
-            case 3:
-                lamp.GetComponent<Image>().sprite = LampLevel3;
-                break;
-            case 4:
-                lamp.GetComponent<Image>().sprite = LampLevel4;
-                break;
-            case 5:
-                lamp.GetComponent<Image>().sprite = LampLevel5;
-                break;
-            case 6:
-                lamp.GetComponent<Image>().sprite = LampLevel6;
-                break;
-            case 8:
-                lamp.GetComponent<Image>().sprite = LampLevel8;
-                break;
-            case 9:
-                lamp.GetComponent<Image>().sprite = LampLevel9;
-                break;
-            case 10:
-                lamp.GetComponent<Image>().sprite = LampLevel10;
-                break;
-            case 11:
-                lamp.GetComponent<Image>().sprite = LampLevel11;
-                break;
-            case 12:
-                lamp.GetComponent<Image>().sprite = LampLevel12;
-                break;
-            default:
-                lamp.GetComponent<Image>().sprite = LampNone;
-                break;
+            int lastLampLevel = DataManager.GetLastLampLevel();
+            GameObject lamp = GameObject.Find("LampImage");
+
+            switch (lastLampLevel)
+            {
+                case 2:
+                    lamp.GetComponent<Image>().sprite = LampLevel2;
+                    break;
+                case 3:
+                    lamp.GetComponent<Image>().sprite = LampLevel3;
+                    break;
+                case 4:
+                    lamp.GetComponent<Image>().sprite = LampLevel4;
+                    break;
+                case 5:
+                    lamp.GetComponent<Image>().sprite = LampLevel5;
+                    break;
+                case 6:
+                    lamp.GetComponent<Image>().sprite = LampLevel6;
+                    break;
+                case 8:
+                    lamp.GetComponent<Image>().sprite = LampLevel8;
+                    break;
+                case 9:
+                    lamp.GetComponent<Image>().sprite = LampLevel9;
+                    break;
+                case 10:
+                    lamp.GetComponent<Image>().sprite = LampLevel10;
+                    break;
+                case 11:
+                    lamp.GetComponent<Image>().sprite = LampLevel11;
+                    break;
+                case 12:
+                    lamp.GetComponent<Image>().sprite = LampLevel12;
+                    break;
+                default:
+                    lamp.GetComponent<Image>().sprite = LampNone;
+                    break;
+            }
         }
-        
+
         //Displaying gap scene:
-        if (scene.name.Equals("Gap"))
+        else if (scene.name.Equals("Gap"))
         {
             time++;
-            if(time > maxTime)
+            if (time > maxTime)
             {
                 int newLevel = DataManager.GetNewLevel();
                 switch (newLevel)
@@ -304,7 +308,7 @@ public class LevelsManager : MonoBehaviour
                     case 11:
                         SceneManager.LoadScene("Level11", LoadSceneMode.Single);
                         break;
-                   default:
+                    default:
                         SceneManager.LoadScene("Corridor", LoadSceneMode.Single);
                         break;
                 }
