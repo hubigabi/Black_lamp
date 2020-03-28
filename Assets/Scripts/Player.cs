@@ -66,7 +66,11 @@ public class Player : MonoBehaviour
     
     void Update()
     {
+
+        //TODO
+        //Czemu tutaj tez musi byc zeby działo? Nie wystarczy raz w Start?????!
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         if (!waitingForDeath)
         {
             var move = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"), 0, 0);

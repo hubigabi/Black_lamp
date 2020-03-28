@@ -13,6 +13,7 @@ public class ScoreToDisplay : MonoBehaviour
     }
 
     public void setScoreText(int score) {
+        Debug.Log(text == null);
         text.text = "SCORE: " + score.ToString();
     }
    
