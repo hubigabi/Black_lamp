@@ -62,4 +62,15 @@ public class DataManager : MonoBehaviour
     {
         newLevel = value;
     }
+
+    public static void Clear()
+    {
+        lastLevel = 0;
+        for (int i = 0; i < 13; i++)
+        {
+            LampLevel[i] = false;
+        }
+        LastLampLevel = 0;
+        newLevel = 0;
+    }
 }

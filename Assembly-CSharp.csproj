@@ -79,12 +79,16 @@
     <Compile Include="Assets\Scripts\Enemy4.cs" />
     <Compile Include="Assets\Scripts\FireBall.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Heart.cs" />
     <Compile Include="Assets\Scripts\HeartManager.cs" />
     <Compile Include="Assets\Scripts\LevelsManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerRecord.cs" />
     <Compile Include="Assets\Scripts\ScoreToDisplay.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\StartManager.cs" />
+    <Compile Include="Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs" />
     <None Include="Assets\Hero and Opponents\license.txt" />
     <None Include="Assets\Sprites\wizard2\README.txt" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />

@@ -43,11 +43,18 @@ public class Manager : MonoBehaviour
         enemy4Height = GameObject.Find("Enemy4").GetComponent<Enemy4>().GetComponent<SpriteRenderer>().bounds.size.y;
 
         //Add a litle bit space from ground for flying enemies
-        enemy3Height *= 2.5f;
-        enemy4Height *= 1.0f;
+        enemy3Height *= 100f;
+        enemy4Height *= 100f;
 
-        createEnemy1();
-        createEnemy2();
+
+        if (Random.Range(0, 2) == 0)
+        {
+            createEnemy1();
+        }
+        else
+        {
+            createEnemy2();
+        }
         createEnemy3();
         createEnemy4();
     }
@@ -57,7 +64,7 @@ public class Manager : MonoBehaviour
         countTime += Time.deltaTime;
         if (countTime > timeToCreateNewEnemy) {
 
-            int randomNumber = Random.Range(0, 5);
+            int randomNumber = Random.Range(0, 4);
 
             //Not so difficult, number of enemies cant be infinite 
             if (getNumberOfEnemies() < maxNumberOfEnemies)
@@ -70,11 +77,11 @@ public class Manager : MonoBehaviour
                 {
                    createEnemy2();
                 }
-                else if (randomNumber == 3)
+                else if (randomNumber == 2)
                 {
                    createEnemy3();
                 }
-                else if (randomNumber == 4)
+                else if (randomNumber == 3)
                 {
                    createEnemy4();
                 }
@@ -154,7 +161,7 @@ public class Manager : MonoBehaviour
 
     public void createEnemy4()
     {
-        float initialeYPosition = Random.Range(groundTopY + enemy4Height , topCameraBorder - enemy4Height);
+        float initialeYPosition = Random.Range(groundTopY + enemy4Height, topCameraBorder - enemy4Height);
 
         if (Random.Range(0, 2) == 0)
         {

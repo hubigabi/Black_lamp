@@ -7,7 +7,7 @@ public class Enemy4 : MonoBehaviour
     private float speed = 40.0f;
     private int direction = 0;
 
-    private int health = 25;
+    private int health = 70;
     private int damage = 15;
 
     private float leftBorder;
@@ -45,7 +45,7 @@ public class Enemy4 : MonoBehaviour
 
         topCameraBorder = bounds.center.y + bounds.extents.y;
         //bottomCameraBorder = bounds.center.y - bounds.extents.y;
-        Debug.Log("Top camera border: " + topCameraBorder);
+        //Debug.Log("Top camera border: " + topCameraBorder);
         //Debug.Log("Bottom camera border: " + bottomCameraBorder);
 
         groundTopY = GameObject.Find("Ground").transform.position.y + GameObject.Find("Ground").GetComponent<SpriteRenderer>().bounds.size.y / 2;

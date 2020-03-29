@@ -29,7 +29,6 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Number of sccenes:" + SceneManager.GetAllScenes().Length);
         GetComponent<Renderer>().enabled = false;
         timeToAppearDoor = Random.Range(timeToAppearDoor - deltaTime, timeToAppearDoor + deltaTime);
         timeToOpenDoor = Random.Range(timeToOpenDoor - deltaTime, timeToOpenDoor + deltaTime);

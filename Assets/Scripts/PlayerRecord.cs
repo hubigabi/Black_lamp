@@ -2,28 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRecord : MonoBehaviour
+public static class PlayerRecord 
 {
-    public static int score;
-    public static int previousScore;
+    public static int score = 0;
+    public static int previousScore = score;
 
-    public static int maxHealth = 250;
-    public static int health;
-    public static int previousHealth;
+    public static int maxHealth = 150;
+    public static int health = maxHealth;
+    public static int previousHealth = health;
 
-    public static int numberOfLifes = 5;
+    public static int maxNumberOfLifes = 5;
+    public static int numberOfLifes = maxNumberOfLifes;
     public static int previousNumberOfLifes;
 
-    public static int levelsNumber = 5;
-
-    void Start()
-    {
-        DontDestroyOnLoad(this.gameObject);
-        score = 0;
-        previousScore = score;
-        health = maxHealth;
-        previousHealth = health;
-    }
+    public static Dictionary<string, bool> isHeartCollectedInScene = new Dictionary<string, bool>();
 
     public static int getScore()
     {
@@ -45,4 +37,11 @@ public class PlayerRecord : MonoBehaviour
         previousScore = value;
     }
 
+
+    public static void restartGame() {
+        score = 0;
+        health = maxHealth;
+        numberOfLifes = maxNumberOfLifes;
+        isHeartCollectedInScene.Clear();
+    } 
 }

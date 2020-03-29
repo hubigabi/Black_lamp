@@ -13,22 +13,43 @@ public class LevelsManager : MonoBehaviour
     Sprite LampLevel9, LampLevel10, LampLevel11, LampLevel12, LampNone;
 
     private int time = 0, maxTime = 40;
+    private bool showLampInCanvas = true;
 
-    // Start is called before the first frame update
+    private SoundManager soundManager;
+    public ScoreToDisplay scoreToDisplay;
+
     void Start()
     {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
         scene = SceneManager.GetActiveScene();
         lastLevel = DataManager.GetLastLevel();
 
         //Checking and displaying lamps in magazine:
         if (scene.name.Equals("Magazine"))
         {
+            soundManager.playSound("levelChange");
             DisplayLamps();
+            showLampInCanvas = true;
         }
 
         //Setting player position & displaying lamps in levels:
         else if (scene.name.Equals("Corridor"))
         {
+            //Get all lamps to test finish scene:
+            /*
+            DataManager.SetLampLevel(2, true);
+            DataManager.SetLampLevel(3, true);
+            DataManager.SetLampLevel(4, true);
+            DataManager.SetLampLevel(5, true);
+            DataManager.SetLampLevel(6, true);
+            DataManager.SetLampLevel(8, true);
+            DataManager.SetLampLevel(9, true);
+            DataManager.SetLampLevel(10, true);
+            DataManager.SetLampLevel(11, true);
+            DataManager.SetLampLevel(12, true);*/
+            
+            showLampInCanvas = true;
             switch (lastLevel)
             {
                 case 0:
@@ -200,6 +221,30 @@ public class LevelsManager : MonoBehaviour
             }
         }
 
+        else if (scene.name.Equals("Gap"))
+        {
+            soundManager.playSound("levelChange");
+            exit();
+        }
+
+        else if (scene.name.Equals("Menu"))
+        {
+            DataManager.Clear();
+            exit();
+        }
+
+        else if (scene.name.Equals("Finish"))
+        {
+            scoreToDisplay = GameObject.Find("ScoreToDisplay").GetComponent<ScoreToDisplay>();
+            scoreToDisplay.setScoreText(PlayerRecord.getScore());
+            exit();
+        }
+
+        else if (scene.name.Equals("GameOver"))
+        {
+            exit();
+        }
+
         //Getting all lamps resources:
         LampLevel2 = Resources.Load<Sprite>("lamps/LampLevel2");
         LampLevel3 = Resources.Load<Sprite>("lamps/LampLevel3");
@@ -212,6 +257,12 @@ public class LevelsManager : MonoBehaviour
         LampLevel11 = Resources.Load<Sprite>("lamps/LampLevel11");
         LampLevel12 = Resources.Load<Sprite>("lamps/LampLevel12");
         LampNone = Resources.Load<Sprite>("lamps/LampNone");
+    }
+
+    public void exit()
+    {
+        showLampInCanvas = false;
+        return;
     }
 
     public static void DisplayLamps()
@@ -237,8 +288,7 @@ public class LevelsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!scene.name.Equals("Menu") && !scene.name.Equals("Gap")
-            && !scene.name.Equals("GameOver") && !scene.name.Equals("Finish"))
+        if(showLampInCanvas)
         {
             int lastLampLevel = DataManager.GetLastLampLevel();
             GameObject lamp = GameObject.Find("LampImage");
@@ -318,11 +368,21 @@ public class LevelsManager : MonoBehaviour
 
     public void LoadMagazine()
     {
-       SceneManager.LoadScene("Magazine", LoadSceneMode.Single);
+        // soundManager.audioSrc.Stop();
+        //soundManager.audioSrc.loop = false;
+        SceneManager.LoadScene("Magazine", LoadSceneMode.Single);
     }
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        //soundManager.audioSrc.clip = soundManager.menuMusic;
+        //soundManager.audioSrc.loop = true;
+        //soundManager.audioSrc.Play();
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single); 
+    }
+
+    public void SkipGapScene()
+    {
+        maxTime = 1;
     }
 }

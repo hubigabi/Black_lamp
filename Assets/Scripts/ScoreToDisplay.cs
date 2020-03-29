@@ -7,14 +7,13 @@ public class ScoreToDisplay : MonoBehaviour
 {
     private Text text;
 
-    void Start()
+    void Awake()
     {
         text = GetComponent<Text>();
     }
 
     public void setScoreText(int score) {
-        Debug.Log(text == null);
         text.text = "SCORE: " + score.ToString();
     }
-   
+
 }

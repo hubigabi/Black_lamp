@@ -10,6 +10,9 @@ TagManager:
   - Enemy3
   - Enemy4
   - Ground
+  - Fire
+  - Lamp
+  - Door
   layers:
   - Default
   - TransparentFX
