@@ -88,7 +88,7 @@ public class Manager : MonoBehaviour
             }
 
             countTime = 0.0;
-            timeToCreateNewEnemy = Random.Range(1.5f, 2.0f);
+            timeToCreateNewEnemy = Random.Range(2.3f, 2.8f);
         }
 
     }

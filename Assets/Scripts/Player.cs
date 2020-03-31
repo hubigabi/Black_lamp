@@ -40,10 +40,8 @@ public class Player : MonoBehaviour
         float cameraHeight = Camera.main.orthographicSize * 2;
         Bounds bounds = new Bounds(Camera.main.transform.position,
             new Vector3(cameraHeight * screenAspect, cameraHeight, 0));
-
         leftCameraBorder = bounds.center.x - bounds.extents.x;
         rightCameraBorder = bounds.center.x + bounds.extents.x;
-
         Debug.Log("Bounds: " + bounds);
         Debug.Log("Left camera border:" + leftCameraBorder);
         Debug.Log("Right camera border:" + rightCameraBorder);*/
@@ -65,7 +63,7 @@ public class Player : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
-    
+
     void Update()
     {
 
@@ -151,9 +149,7 @@ public class Player : MonoBehaviour
             if (transform.position.x < leftCameraBorder)
             {
                 transform.position = new Vector3(leftCameraBorder, transform.position.y, transform.position.z);
-
             }
-
             if (transform.position.x > rightCameraBorder)
             {
                 transform.position = new Vector3(rightCameraBorder, transform.position.y, transform.position.z);
@@ -161,7 +157,7 @@ public class Player : MonoBehaviour
 
             if (PlayerRecord.health != PlayerRecord.previousHealth)
             {
-                if (PlayerRecord.health < PlayerRecord.previousHealth 
+                if (PlayerRecord.health < PlayerRecord.previousHealth
                     && PlayerRecord.numberOfLifes == PlayerRecord.previousNumberOfLifes)
                 {
                     soundManager.playSound("hit");
@@ -169,7 +165,7 @@ public class Player : MonoBehaviour
 
                 healthBar.SetHealth(PlayerRecord.health);
                 PlayerRecord.previousHealth = PlayerRecord.health;
-          
+
             }
 
             if (PlayerRecord.getScore() != PlayerRecord.getPreviousScore())
@@ -217,7 +213,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
         Debug.Log("Death of player");
-        
+
         soundManager.playSound("game_over");
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
@@ -254,7 +250,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision2D)
     {
-        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1 
+        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1
             && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
         {
             isJumping = false;
@@ -350,7 +346,7 @@ public class Player : MonoBehaviour
 
         //Corridor & Magazine travel:
         else if (collision.gameObject.tag.Equals("Door"))
-        { 
+        {
             if (collision.gameObject.name.Equals("ToCorridor"))
             {
                 soundManager.playSound("jump");
