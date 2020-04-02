@@ -1,5 +1,5 @@
 # Lamp Lights - Unity 2D Game
-This game is based on  [Black Lamp](https://en.wikipedia.org/wiki/Black_Lamp_(video_game\)) 
+This game is based on <a href="https://en.wikipedia.org/wiki/Black_Lamp_(video_game)"> Black Lamp </a>
 originally published by Firebird Software in 1988. <br/>
 You can play it on your computer as well as also on a mobile device.
 
