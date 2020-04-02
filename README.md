@@ -1,5 +1,5 @@
 # Lamp Lights - Unity 2D Game
-This game is based on  [Black Lamp](https://en.wikipedia.org/wiki/Black_Lamp_(video_game) 
+This game is based on  [Black Lamp](https://en.wikipedia.org/wiki/Black_Lamp_(video_game\)) 
 originally published by Firebird Software in 1988. <br/>
 You can play it on your computer as well as also on a mobile device.
 
@@ -14,11 +14,13 @@ Your aim is to bring them to the magazine. But be aware, you are not immortal!
 There are many enemies that have powers and can kill you.
 
 ## Some photos:
-<img src="Images/photo1.jpg" height="250" width="450">
-<img src="Images/photo2.jpg" height="250" width="450">
-<img src="Images/photo3.jpg" height="250" width="450">
-<img src="Images/photo4.jpg" height="250" width="450">
+<p>
+<img src="Images/photo1.jpg" width="420">
+<img src="Images/photo2.jpg" width="420">
+<img src="Images/photo3.jpg" width="420">
+<img src="Images/photo4.jpg" width="420">
+</p>
 
 ## Authors:
-* @hubigabi **Hubert Gabryszewski** 
-* @betlewski **Szymon Betlewski**
+* [hubigabi](https://github.com/hubigabi)
+* [betlewski](https://github.com/betlewski)
