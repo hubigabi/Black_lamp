@@ -15,10 +15,10 @@ There are many enemies that have powers and can kill you.
 
 ## Some photos:
 <p>
-<img src="Images/photo1.jpg" width="420">
-<img src="Images/photo2.jpg" width="420">
-<img src="Images/photo3.jpg" width="420">
-<img src="Images/photo4.jpg" width="420">
+<img src="Images/photo1.png" width="420">
+<img src="Images/photo2.png" width="420">
+<img src="Images/photo3.png" width="420">
+<img src="Images/photo4.png" width="420">
 </p>
 
 ## Authors:
