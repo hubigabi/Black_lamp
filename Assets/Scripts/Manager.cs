@@ -18,11 +18,11 @@ public class Manager : MonoBehaviour
     private double countTime = 0.0;
     private double timeToCreateNewEnemy;
 
-    private int maxNumberOfEnemies = 6;
+    private int maxNumberOfEnemies = 5;
 
     void Start()
     {
-        timeToCreateNewEnemy = Random.Range(4.0f, 5.0f); 
+        timeToCreateNewEnemy = Random.Range(3.0f, 4.0f); 
         leftBorderX = GameObject.Find("LeftBorder").transform.position.x;
         rightBorderX = GameObject.Find("RightBorder").transform.position.x;
 
@@ -55,8 +55,16 @@ public class Manager : MonoBehaviour
         {
             createEnemy2();
         }
-        createEnemy3();
-        createEnemy4();
+
+        if (Random.Range(0, 2) == 0)
+        {
+            createEnemy3();
+        }
+        else
+        {
+            createEnemy4();
+        }
+        
     }
 
     void Update()
@@ -88,7 +96,7 @@ public class Manager : MonoBehaviour
             }
 
             countTime = 0.0;
-            timeToCreateNewEnemy = Random.Range(2.3f, 2.8f);
+            timeToCreateNewEnemy = Random.Range(2.5f, 3.0f);
         }
 
     }

@@ -10,7 +10,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void OnEnable()
         {
-
+            //Reset state
+            this.SetUpState();
         }
 
         public void SetDownState()

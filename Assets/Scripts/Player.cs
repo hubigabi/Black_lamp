@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         //Free rotatation along Z-axis
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+
     }
 
     void Update()
@@ -240,7 +241,8 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {
-        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1
+        if (collision2D.gameObject.tag.Equals("Ground") 
+            && Mathf.Abs(rb.velocity.y) < 0.1
             && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
         {
             isJumping = false;
@@ -250,7 +252,8 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision2D)
     {
-        if (collision2D.gameObject.tag.Equals("Ground") && Mathf.Abs(rb.velocity.y) < 0.1
+        if (collision2D.gameObject.tag.Equals("Ground") 
+            && Mathf.Abs(rb.velocity.y) < 0.1
             && collision2D.gameObject.transform.position.y < gameObject.transform.position.y)
         {
             isJumping = false;
